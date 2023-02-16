@@ -1,32 +1,21 @@
 let playerWins = 0;
 let computerWins = 0;
+const buttons = document.querySelectorAll(".btn");
 
-const rockBtn = document.querySelector('.rock');
-const paperBtn = document.querySelector('.paper');
-const scissorsBtn = document.querySelector('.scissors');
-const results = document.querySelector('.results');
-const winner = document.querySelector('.winner');
-const scorePlayer = document.querySelector('.score_player');
-const scoreComputer = document.querySelector('.score_computer');
+let roundResults = "";
+const results = document.querySelector(".results");
+const winner = document.querySelector(".winner");
+const scorePlayer = document.querySelector(".score_player");
+const scoreComputer = document.querySelector(".score_computer");
 const rounds = document.querySelector(`.rounds`);
-
-//rockBtn.addEventListener('click' , console.log('rock'));
 
 function getComputerChoice() {
   let options = ["rock", "paper", "scissors"];
-  return (options[Math.floor(Math.random() * options.length)]);
-}
-
-function playerSelection() {
-  return prompt("Enter one: rock , paper , scissors").toLowerCase();
+  return options[Math.floor(Math.random() * options.length)];
 }
 
 function playRound(playerSelection, computerSelection) {
-  // console.log(
-  //   `player: ${playerSelection} VS computer: ${computerSelection}`
-  // );
   results.textContent = `player ${playerSelection} VS computer: ${computerSelection}`;
-
   if (playerSelection === computerSelection) return "Draw";
   const winPairs = {
     paper: "rock",
@@ -41,21 +30,23 @@ function playRound(playerSelection, computerSelection) {
     : "Computer Wins";
 }
 
-function game() {
-  //for (let i = 0; i < 5; i++) {
-    //console.log(playRound(playerSelection(), getComputerChoice()));
-    //console.log("Player Wins", playerWins);
-    //console.log("Computer Wins", computerWins);
-    rounds.textContent = playRound(playerSelection(), getComputerChoice());
-    scorePlayer.textContent = ` Player Wins , ${playerWins}`;
-    scoreComputer.textContent = ` Computer Wins , ${computerWins}`;
-  //}
-  if (playerWins > computerWins) {
-    //console.log("Player Beat Computer");
-    winner.textContent = "Player Beat Computer"
-  } else if (computerWins > playerWins) {
-    //console.log("Computer Beat Player");
-    winner.textContent = "Computer Beat Player"
+function showResults() {
+  rounds.textContent = roundResults;
+  scorePlayer.textContent = `Player Wins , ${playerWins}`;
+  scoreComputer.textContent = `Computer Wins , ${computerWins}`;
+  if (playerWins === 5 && computerWins < 5) {
+    winner.textContent = "Player Beat Computer";
+  } else if (computerWins === 5 && playerWins < 5) {
+    winner.textContent = "Computer Beat Player";
   }
+}
+
+function game() {
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      roundResults = playRound(button.value, getComputerChoice());
+      showResults();
+    });
+  });
 }
 game();

@@ -1,3 +1,44 @@
-button{
-    background-color:blue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    margin:0;
+    font-family:'Roboto','sans-serif';
+}
+body{
+    width:100%;
+    //height:100vh;
+    display:flex;
+    flex-direction:column;
+    //justify-content:center;
+    align-items:center;
+}
+.header{
+    width:100%;
+    height:10vh;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+.animation{
+    width:100%;
+    height:30vh;
+    display:flex;
+    flex-direction:row;
+}
+.pick{
+    width:50%;
+    height:inherit;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &-user{
+        @extend .pick;
+        background-color:blue;
+    }
+
+    &-computer{
+        @extend .pick;
+        background-color:red;
+    }
 }
