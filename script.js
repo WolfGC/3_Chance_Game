@@ -3,7 +3,7 @@ let computerWins = 0;
 
 function getComputerChoice() {
   let options = ["rock", "paper", "scissors"];
-  return (randomChoice = options[Math.floor(Math.random() * options.length)]);
+  return (options[Math.floor(Math.random() * options.length)]);
 }
 
 function playerSelection() {
