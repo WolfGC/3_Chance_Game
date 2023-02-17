@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #403d39;
 }
 
 .header {
@@ -19,9 +20,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+.header h1 {
+  color: #fffcf2;
+}
 
 .animation {
-  width: 100%;
+  width: 60%;
   height: 30vh;
   display: flex;
   flex-direction: row;
@@ -33,10 +37,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 30px;
+  color: #fffcf2;
 }
 .pick-user {
-  background-color: blue;
+  background-color: #eb5e28;
 }
 .pick-computer {
-  background-color: red;
+  background-color: #252422;
+}
+
+.results-group {
+  width: 40%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fffcf2;
+}
+.results-group p {
+  margin: 5px;
+}
+
+.btn-group {
+  width: 35%;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-group .btn {
+  width: 80px;
+  height: 50px;
+  border-radius: 0.5em;
+  border-style: solid;
+  border-color: #fffcf2;
+  background-color: #403d39;
+  color: #fffcf2;
 }/*# sourceMappingURL=styles.css.map */
