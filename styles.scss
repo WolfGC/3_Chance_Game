@@ -43,8 +43,6 @@ body {
 .pick {
   @include column;
   min-width: 180px;
-  height: inherit;
-  justify-content: center;
   font-size: 30px;
   margin: 5px;
   border-radius: 2em;
@@ -106,3 +104,9 @@ body {
     font-size: 20px;
   }
 }
+
+// @media not all and (min-resolution: 0.001dpcm) {
+//   .pick{
+//     justify-content:center;
+//   }
+// }
