@@ -38,6 +38,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-width: 180px;
+  height: 170px;
   font-size: 30px;
   margin: 5px;
   border-radius: 2em;

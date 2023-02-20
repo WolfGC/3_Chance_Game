@@ -43,6 +43,7 @@ body {
 .pick {
   @include column;
   min-width: 180px;
+  height:170px;
   font-size: 30px;
   margin: 5px;
   border-radius: 2em;
