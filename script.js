@@ -5,8 +5,8 @@ let roundResults = "";
 let options = ["✊", "✋", "✌️"];
 
 const buttons = document.querySelectorAll(".btn");
-const userPick = document.querySelector(".pick-user");
-const compPick = document.querySelector(".pick-computer");
+const userPick = document.querySelector(".test-player");
+const compPick = document.querySelector(".test-computer");
 const winner = document.querySelector(".winner");
 const scorePlayer = document.querySelector(".score_player");
 const scoreComputer = document.querySelector(".score_computer");
@@ -17,8 +17,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  userPick.textContent = ` You: ${playerSelection}`;
-  compPick.textContent = ` Computer: ${computerSelection}`;
+  userPick.textContent = `${playerSelection}`;
+  compPick.textContent = `${computerSelection}`;
   if (playerSelection === computerSelection) return "Draw";
   const winPairs = {
     "✋": "✊",
@@ -29,39 +29,36 @@ function playRound(playerSelection, computerSelection) {
     ? playerWins++
     : computerWins++;
   return winPairs[playerSelection] === computerSelection
-    ? "Player Wins"
-    : "Computer Wins";
+    ? "You Win"
+    : "Computer Win";
 }
 
-function cycleAnimation(interval) {
+function cycleAnimation() {
   let option = options[count];
   userPick.textContent = option;
   compPick.textContent = option;
   count++;
-  if (count === options.length) {
-    count = 0;
-  }
-  console.log(count);
+  if (count === options.length) count = 0;
 }
 
 function showResults() {
   rounds.textContent = roundResults;
-  scorePlayer.textContent = `Player Wins , ${playerWins}`;
-  scoreComputer.textContent = `Computer Wins , ${computerWins}`;
-  if (playerWins === 5 && computerWins < 5) {
-    winner.textContent = "Player Beat Computer";
-  } else if (computerWins === 5 && playerWins < 5) {
-    winner.textContent = "Computer Beat Player";
-  }
+  scorePlayer.textContent = `You : ${playerWins}`;
+  scoreComputer.textContent = `Computer : ${computerWins}`;
+  playerWins >= 5 && computerWins < 5
+    ? (winner.textContent = "You beat the Computer!")
+    : computerWins >= 5 && playerWins < 5
+    ? (winner.textContent = "Computer Won")
+    : "";
 }
 
 function game() {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const interval = setInterval(cycleAnimation, 100);
+      const animation = setInterval(cycleAnimation, 100);
       cycleAnimation();
       setTimeout(() => {
-        clearInterval(interval);
+        clearInterval(animation);
         roundResults = playRound(button.value, getComputerChoice());
         showResults();
       }, 800);

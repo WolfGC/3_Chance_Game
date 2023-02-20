@@ -11,10 +11,17 @@
   <body>
     <div class="header">
       <h1>3 Choice Game</h1>
+      <h3>First to 5 Wins</h3>
     </div>
     <div class="animation">
-      <div class="pick-user"></div>      
-      <div class="pick-computer"></div>
+      <div class="pick-user">
+        <span>You:</span>
+        <p class="test-player">✊</p>
+      </div>
+      <div class="pick-computer">
+        <span>Computer:</span>
+        <p class="test-computer">✊</p>
+      </div>
     </div>
     <div class="btn-group">
       <button class="btn" value="✊">✊</button>
@@ -22,9 +29,12 @@
       <button class="btn" value="✌️">✌️</button>
     </div>
     <div class="results-group">
-      <p class="rounds"></p>
-      <p class="score_player"></p>
-      <p class="score_computer"></p>
+      <p>Results</p>
+      <p class="rounds">Select to play a round</p>
+      <div class="score_group">
+        <p class="score_player">You : 0</p>
+        <p class="score_computer">Computer : 0</p>
+      </div>
       <p class="winner"></p>
     </div>
   </body>
